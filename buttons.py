@@ -20,7 +20,7 @@ class Buttonsaction:
             self.entry.insert(len(previous_num), BTN)
         elif previous_num != '0' and '.' not in previous_num:
             self.entry.insert(len(previous_num), BTN)
-        elif previous_num !=0 and '.' in previous_num:
+        elif previous_num != 0 and '.' in previous_num:
             self.entry.insert(len(previous_num), BTN)
 
 
@@ -31,6 +31,7 @@ class Buttonsaction:
 
         global previous_res
         previous_res = self.entry.get()
+        
         self.entry.delete(first=0, last=END)
         self.entry.insert(0, '0')
 
