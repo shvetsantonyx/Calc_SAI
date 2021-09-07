@@ -5,12 +5,12 @@ from math import sqrt
 class Buttonsaction:
 
     # marker for operations: plus, minus, multyply, division
-    global marker_set
-    marker_set = None
+    # global marker_set
+    # marker_set = None
 
-    # marker for new turn of btn_num_action after operations
-    global marker_set_2
-    marker_set_2 = True
+    # # marker for new turn of btn_num_action after operations
+    # global marker_set_2
+    # marker_set_2 = True
 
 
     def btn_num_action(self, constant):
@@ -31,25 +31,28 @@ class Buttonsaction:
             self.entry.insert(len(previous_num), BTN)
 
         
-        global marker_set_2
-        if marker_set_2 == False:
+        if self.marker_set_2 == False:
             self.entry.delete(first=0, last=END)
-            marker_set_2 = True
+            self.marker_set_2 = True
             self.btn_num_action(constant)
 
+        
+
+
+class Operations_main(Buttonsaction):
 
     def btn_operation_action(self, marker):
 
-        global marker_set
-        marker_set = marker
+        # global marker_set
+        self.marker_set = marker
 
-        global marker_set_2
-        marker_set_2 = False
+        # global marker_set_2
+        self.marker_set_2 = False
 
-        global previous_res
-        previous_res = self.entry.get()
+        # global previous_res
+        self.previous_res = self.entry.get()
 
-        if marker_set == None:
+        if self.marker_set == None:
             self.entry.delete(first=0, last=END)
             self.entry.insert(0, '0')
 
@@ -100,19 +103,20 @@ class Buttonsaction:
         self.entry.delete(first=0, last=END)
         self.entry.insert(0, '0')
 
-        global marker_set
-        marker_set = None
+        self.marker_set = None
 
+
+class Equal_action(Operations_main):
     def btn_equal_action(self):
-        print(marker_set)
-        print(previous_res)
+        # print(marker_set)
+        # print(self.previous_res)
         
 
         secondary_res = self.entry.get()
         print(secondary_res)
 
-        if marker_set == 'plus':
-            result = round(float(previous_res) + float(secondary_res), 10)
+        if self.marker_set == 'plus':
+            result = round(float(self.previous_res) + float(secondary_res), 10)
             self.entry.delete(first=0, last=END)
 
             if str(result)[-1] == '0':
@@ -120,26 +124,26 @@ class Buttonsaction:
             else:
                 self.entry.insert(0, str(result))
                 
-        elif marker_set == 'minus':
-            result = round(float(previous_res) - float(secondary_res), 10)
+        elif self.marker_set == 'minus':
+            result = round(float(self.previous_res) - float(secondary_res), 10)
             self.entry.delete(first=0, last=END)
             if str(result)[-1] == '0':
                 self.entry.insert(0, str(result)[:-2])
             else:
                 self.entry.insert(0, str(result))
 
-        elif marker_set == 'multiply':
-            result = round(float(previous_res) * float(secondary_res), 10)
+        elif self.marker_set == 'multiply':
+            result = round(float(self.previous_res) * float(secondary_res), 10)
             self.entry.delete(first=0, last=END)
             if str(result)[-1] == '0':
                 self.entry.insert(0, str(result)[:-2])
             else:
                 self.entry.insert(0, str(result))
 
-        elif marker_set == 'division':
+        elif self.marker_set == 'division':
             try:
                 self.entry.delete(first=0, last=END)
-                result = round(float(previous_res) / float(secondary_res), 10)
+                result = round(float(self.previous_res) / float(secondary_res), 10)
 
                 if str(result)[-1] == '0':
                     self.entry.insert(0, str(result)[:-2])
