@@ -1,4 +1,4 @@
-from tkinter.constants import END, FALSE, NONE
+from tkinter.constants import END
 from math import sqrt
 
 
@@ -95,7 +95,8 @@ class Buttonsaction:
         if previous_num != '0':
             tkinter.entry.delete(first=(len(previous_num) - 1), last=None)
 
-    def btn_sqrt_action(tkinter):
+
+    def btn_sqrt_action(self, tkinter):
 
         previous_num = float(tkinter.entry.get())
         tkinter.entry.delete(first=0, last=END)

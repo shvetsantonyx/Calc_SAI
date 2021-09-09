@@ -1,6 +1,6 @@
 from tkinter import *
 # from buttons import Buttonsaction, Operations_main
-import buttons as b
+from buttons import Buttonsaction
 
 
 class Calc_app(Tk):
@@ -22,7 +22,7 @@ class Calc_app(Tk):
         self.entry.insert(0, '0')
         self.entry.grid(row=0, column=0, columnspan=4)
 
-        Buttons = b.Buttonsaction()
+        Buttons = Buttonsaction()
 
 
 
