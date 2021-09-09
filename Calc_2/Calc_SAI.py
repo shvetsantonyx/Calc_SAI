@@ -1,5 +1,4 @@
 from tkinter import *
-# from buttons import Buttonsaction, Operations_main
 from buttons import Buttonsaction
 
 
@@ -12,7 +11,6 @@ class Calc_app(Tk):
         self.title('Calc')
         self.geometry('+900+300')
         self.resizable(False, False)
-        # self.iconbitmap('calc_calculator_2183.ico')
         self.set_ui()
 
 

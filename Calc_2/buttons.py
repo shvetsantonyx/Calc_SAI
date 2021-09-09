@@ -162,8 +162,6 @@ class Buttonsaction:
                 pass
             except: NameError
 
-        # self.marker_set = False
-
 
     def equal_action(self, tkinter):
         
